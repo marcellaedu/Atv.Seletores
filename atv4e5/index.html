@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos</title>
+   
+</head>
+<body>
+    <img onclick="clicou()" src="https://disneybrnews.weebly.com/uploads/4/6/5/7/46572671/494681850.jpg?250" style="border-radius: 50%;" alt="">
+   
+    <h1 id="msg"></h1>
+
+    <h1>Fale um sabor de sorvete: </h1>
+   
+    <input type="text">
+
+    <script>
+        var msg = document.getElementById('msg');
+        var imagem = document.querySelector('img');
+        var input = document.querySelector('input');
+
+        //opção 1
+        function clicou(){
+            msg.innerText = "Ohh, para de me apertar!";
+        }
+        //Opção 2
+        imagem.onmouseenter = function(){
+            msg.innerText = "Eii, para!! Está me fazendo cócegas!";
+        }
+        //Opção 3
+        imagem.addEventListener('drag', (evento)=> {
+            msg.innerText = "Eii, onde está me levando?? Me coloca de volta";
+        });
+        //Opção 3.1
+        input.addEventListener('keyup', (evento)=> {
+            console.log(evento)
+
+            var conteudoInput = input.value;
+
+            if(conteudoInput.length <= 3){
+                msg.innerText = "Fale mais!";
+            }else{
+                if(conteudoInput == "creme"){
+                msg.innerText = "Ah! Gosto mais de morango!";}
+            
+                if(conteudoInput == "flocos"){
+                    msg.innerText = "Ah! Prefiro chocolate!";}
+
+            }
+        });
+    </script>
+</body>
+</html>
